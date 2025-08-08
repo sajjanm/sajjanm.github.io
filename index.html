@@ -1,1 +1,130 @@
-hello World
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="description" content="Portfolio of Sajjan Mishra — journey, experience, education, testimonials, contact" />
+  <title>Sajjan Mishra | Portfolio</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- Top navigation -->
+  <header id="navbar" role="banner">
+    <nav role="navigation" aria-label="Main">
+      <ul>
+        <li><a href="#home" class="nav-link">Home</a></li>
+        <li><a href="#experience" class="nav-link">Experience</a></li>
+        <li><a href="#education" class="nav-link">Education</a></li>
+        <li><a href="#testimonials" class="nav-link">Testimonials</a></li>
+        <li><a href="#contact" class="nav-link">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Sections (storytelling flow) -->
+  <main>
+    <section id="home" class="section" aria-labelledby="home-title">
+      <div class="content">
+        <img src="assets/profile.jpg" alt="Sajjan Mishra" class="profile-pic" />
+        <h1 id="home-title">Hi — I'm Sajjan Mishra</h1>
+        <p class="lead">A journey of curiosity, code, and continuous learning. Scroll to walk the timeline.</p>
+      </div>
+    </section>
+
+    <section id="experience" class="section" aria-labelledby="exp-title">
+      <div class="content">
+        <h2 id="exp-title">Experience</h2>
+        <p>I build and scale software that solves real problems — with a focus on reliability and thoughtful UX.</p>
+        <ul class="timeline">
+          <li>
+            <span class="year">2022 – Present</span>
+            <div class="details">
+              <h3>Senior Developer</h3>
+              <p>Leading distributed teams and building cloud-native applications.</p>
+            </div>
+          </li>
+          <li>
+            <span class="year">2018 – 2022</span>
+            <div class="details">
+              <h3>Software Engineer</h3>
+              <p>Data-driven features, CI/CD improvements, and product-focused engineering.</p>
+            </div>
+          </li>
+        </ul>
+        <p class="small">See more on <a href="https://www.linkedin.com/in/sajjanmishra/" target="_blank" rel="noopener">LinkedIn</a>.</p>
+      </div>
+    </section>
+
+    <section id="education" class="section" aria-labelledby="edu-title">
+      <div class="content">
+        <h2 id="edu-title">Education</h2>
+        <p>Academic foundations that shaped my engineering mindset.</p>
+        <ul class="timeline">
+          <li>
+            <span class="year">2014 – 2018</span>
+            <div class="details">
+              <h3>Bachelor of Engineering (Computer Science)</h3>
+              <p>[University Name]</p>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="testimonials" class="section" aria-labelledby="testi-title">
+      <div class="content">
+        <h2 id="testi-title">Testimonials</h2>
+        <blockquote>“Sajjan is a problem-solver at heart — precise, creative, and dependable.”<cite> — Former Team Lead</cite></blockquote>
+        <blockquote>“A pleasure to work with — practical and forward-thinking.”<cite> — Project Manager</cite></blockquote>
+      </div>
+    </section>
+
+    <section id="contact" class="section" aria-labelledby="contact-title">
+      <div class="content">
+        <h2 id="contact-title">Contact</h2>
+        <p>Let’s connect.</p>
+        <p>Email: <a href="mailto:your.email@example.com">your.email@example.com</a></p>
+        <p>LinkedIn: <a href="https://www.linkedin.com/in/sajjanmishra/" target="_blank" rel="noopener">linkedin.com/in/sajjanmishra</a></p>
+        <p>GitHub: <a href="https://sajjanm.github.io/" target="_blank" rel="noopener">sajjanm.github.io</a></p>
+      </div>
+    </section>
+  </main>
+
+  <!-- Progress bar + runner (SVG inline; no external GIF needed) -->
+  <div id="progress-container" aria-hidden="true">
+    <div id="progress-track" aria-hidden="true"></div>
+    <div id="progress-bar" aria-hidden="true"></div>
+
+    <!-- Inline SVG runner (animated with CSS) -->
+    <div id="runner-icon" aria-hidden="true">
+      <svg viewBox="0 0 40 40" width="44" height="44" role="img" aria-hidden="true" focusable="false">
+        <!-- wrapper group for bobbing -->
+        <g id="runner-g" transform="translate(0,0)">
+          <!-- head -->
+          <circle cx="20" cy="8" r="3" stroke="none" fill="#0b2f5a"/>
+          <!-- torso -->
+          <line x1="20" y1="11" x2="20" y2="20" stroke="#0b2f5a" stroke-width="1.6" stroke-linecap="round"/>
+          <!-- left arm (will animate) -->
+          <g id="left-arm" class="arm" style="transform-box: fill-box;">
+            <line x1="20" y1="13" x2="14" y2="17" stroke="#0b2f5a" stroke-width="1.6" stroke-linecap="round"/>
+          </g>
+          <!-- right arm -->
+          <g id="right-arm" class="arm" style="transform-box: fill-box;">
+            <line x1="20" y1="13" x2="26" y2="15" stroke="#0b2f5a" stroke-width="1.6" stroke-linecap="round"/>
+          </g>
+          <!-- left leg -->
+          <g id="left-leg" class="leg" style="transform-box: fill-box;">
+            <line x1="20" y1="20" x2="14" y2="30" stroke="#0b2f5a" stroke-width="1.6" stroke-linecap="round"/>
+          </g>
+          <!-- right leg -->
+          <g id="right-leg" class="leg" style="transform-box: fill-box;">
+            <line x1="20" y1="20" x2="26" y2="30" stroke="#0b2f5a" stroke-width="1.6" stroke-linecap="round"/>
+          </g>
+        </g>
+      </svg>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
