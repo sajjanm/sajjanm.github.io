@@ -1,0 +1,22 @@
+<section id="projects" class="container bg-section">
+  <div class="header-section text-center">
+    <h2 class="title font-display">Featured <span class="gradient-text">Projects</span></h2>
+    <p class="subtitle mt-3">Selected works from my professional and personal journey.</p>
+  </div>
+
+  <div class="projects-grid mt-5">
+    <div class="project-card glass" *ngFor="let proj of projects">
+      <div class="card-image glass">
+        <span class="placeholder-icon">📂</span>
+      </div>
+      <div class="card-content">
+        <h3 class="font-display">{{ proj.title }}</h3>
+        <p>{{ proj.description }}</p>
+        <div class="tech-tags mt-3">
+          <span class="tag" *ngFor="let t of proj.tech">{{ t }}</span>
+        </div>
+        <a href="#" class="view-btn">Coming Soon <span class="arrow">→</span></a>
+      </div>
+    </div>
+  </div>
+</section>

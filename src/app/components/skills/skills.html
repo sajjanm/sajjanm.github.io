@@ -1,0 +1,18 @@
+<section id="skills" class="container bg-section">
+  <div class="header-section text-center">
+    <h2 class="title font-display">Technical <span class="gradient-text">Mastery</span></h2>
+    <p class="subtitle mt-3">Proficient in a wide array of modern technologies and tools.</p>
+  </div>
+
+  <div class="skills-grid mt-5">
+    <div class="skill-category glass" *ngFor="let cat of skillCategories">
+      <div class="cat-header">
+        <span class="cat-icon">{{ cat.icon }}</span>
+        <h3 class="font-display">{{ cat.title }}</h3>
+      </div>
+      <div class="skill-list">
+        <span class="skill-pill" *ngFor="let s of cat.skills">{{ s }}</span>
+      </div>
+    </div>
+  </div>
+</section>
