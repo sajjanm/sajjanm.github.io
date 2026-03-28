@@ -1,0 +1,19 @@
+<section id="education" class="container">
+  <div class="row">
+    <div class="header-section col">
+      <h2 class="title font-display">Academic <span class="gradient-text">Background</span></h2>
+      <p class="subtitle mt-3">Formal education and foundational knowledge.</p>
+    </div>
+    
+    <div class="edu-list mt-5">
+      <div class="edu-card glass animate-reveal" *ngFor="let edu of education">
+        <div class="icon-box">🎓</div>
+        <div class="content">
+          <h3 class="degree font-display">{{ edu.degree }}</h3>
+          <p class="institution">{{ edu.institution }}</p>
+          <span class="period">{{ edu.period }}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

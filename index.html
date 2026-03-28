@@ -1,1 +1,211 @@
-hello World
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="description"
+    content="Portfolio of Sajjan Mishra — journey, experience, education, testimonials, contact" />
+  <title>Sajjan Mishra | Portfolio</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <!-- Top navigation -->
+  <header id="navbar" role="banner">
+    <nav role="navigation" aria-label="Main">
+      <ul>
+        <li><a href="#home" class="nav-link">Home</a></li>
+        <li><a href="#experience" class="nav-link">Experience</a></li>
+        <li><a href="#education" class="nav-link">Education</a></li>
+        <li><a href="#testimonials" class="nav-link">Testimonials</a></li>
+        <li><a href="#contact" class="nav-link">Contact</a></li>
+      </ul>
+      <!-- Theme selector -->
+      <div class="theme-selector">
+        <button id="theme-toggle" aria-label="Toggle theme" title="Toggle theme">
+          <svg class="theme-icon sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="5"></circle>
+            <line x1="12" y1="1" x2="12" y2="3"></line>
+            <line x1="12" y1="21" x2="12" y2="23"></line>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+            <line x1="1" y1="12" x2="3" y2="12"></line>
+            <line x1="21" y1="12" x2="23" y2="12"></line>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+          </svg>
+          <svg class="theme-icon moon-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+          </svg>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Sections (storytelling flow) -->
+  <main>
+    <section id="home" class="section" aria-labelledby="home-title">
+      <div class="content">
+        <img src="assets/sajjan.jpg" alt="Sajjan Mishra" class="profile-pic" />
+        <h1 id="home-title">Hi — I'm Sajjan Mishra</h1>
+        <p class="lead">Excellent team player with exceptional work ethics who can work autonomously and deliver
+          good results. Over 5 years of industry experience with solid knowledge of computer science concepts,
+          object-oriented designs, and cloud technology (AWS).</p>
+      </div>
+    </section>
+
+    <section id="experience" class="section" aria-labelledby="exp-title">
+      <div class="content">
+        <h2 id="exp-title">Experience</h2>
+        <p>I build and scale software that solves real problems — with a focus on reliability and thoughtful UX.
+        </p>
+        <ul class="timeline">
+          <li>
+            <span class="year">Sep 2022 – Present</span>
+            <div class="details">
+              <h3>Software Engineer — Compare the Market</h3>
+              <p>Brisbane, Australia</p>
+              <p>General Insurance Team working on Car, Home, Contents and Travel Insurance. Improving
+                customer journey and clearing tech debt while making applications fault tolerant using
+                AWS services like S3, Lambda, and modernizing CI/CD pipelines with Azure DevOps.</p>
+            </div>
+          </li>
+          <li>
+            <span class="year">Jan 2020 – Sep 2022</span>
+            <div class="details">
+              <h3>Full Stack Developer — ARQ Group Enterprise</h3>
+              <p>Brisbane, Australia</p>
+              <p>Email Journal Store for Department of Education. Built web application with Angular
+                frontend, Python backend, and OpenSearch engine on AWS. Updated architecture from EC2 to
+                Lambda, rewrote Java backend to Python, and modernized frontend from AngularJS to
+                Angular 12.</p>
+            </div>
+          </li>
+          <li>
+            <span class="year">Nov 2017 – Jan 2018</span>
+            <div class="details">
+              <h3>Java Developer — NetPillar</h3>
+              <p>Sydney, Australia</p>
+              <p>Developed end-to-end RESTful applications using Java EE and Hibernate. Built schedulers
+                for automated Excel parsing and database updates, implemented file upload with
+                validation, and performed API testing.</p>
+            </div>
+          </li>
+        </ul>
+        <p class="small">See more on <a href="https://www.linkedin.com/in/sajjanmishra/" target="_blank"
+            rel="noopener">LinkedIn</a>.</p>
+      </div>
+    </section>
+
+    <section id="education" class="section" aria-labelledby="edu-title">
+      <div class="content">
+        <h2 id="edu-title">Education</h2>
+        <p>Academic foundations that shaped my engineering mindset.</p>
+        <ul class="timeline">
+          <li>
+            <span class="year">Nov 2017 – Jan 2018</span>
+            <div class="details">
+              <h3>Master of Technology (Software Engineering)</h3>
+              <p>Federation University, Australia</p>
+              <p>CGPA: 5.93/7 - High Distinction in Foundation of Programming, Enterprise Programming,
+                Database Management System</p>
+            </div>
+          </li>
+          <li>
+            <span class="year">Sep 2011 – Oct 2015</span>
+            <div class="details">
+              <h3>Bachelor of Engineering (Computer Engineering)</h3>
+              <p>Tribhuvan University, Nepal</p>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="testimonials" class="section" aria-labelledby="testi-title">
+      <div class="content">
+        <h2 id="testi-title">Testimonials</h2>
+        <blockquote>“Sajjan is a problem-solver at heart — precise, creative, and dependable.”<cite> — Former
+            Team Lead</cite></blockquote>
+        <blockquote>“A pleasure to work with — practical and forward-thinking.”<cite> — Project Manager</cite>
+        </blockquote>
+      </div>
+    </section>
+
+    <section id="contact" class="section" aria-labelledby="contact-title">
+      <div class="content">
+        <h2 id="contact-title">Contact</h2>
+        <p>Let’s connect.</p>
+        <p>Email: <a href="mailto:sajjanm01@gmail.com">sajjanm01@gmail.com</a></p>
+        <p>Phone: <a href="tel:+61401096094">0401 096 094</a></p>
+        <p>Location: Brisbane, Australia</p>
+        <p>LinkedIn: <a href="https://www.linkedin.com/in/sajjanmishra/" target="_blank"
+            rel="noopener">linkedin.com/in/sajjanmishra</a></p>
+        <p>GitHub: <a href="https://sajjanm.github.io/" target="_blank" rel="noopener">sajjanm.github.io</a></p>
+      </div>
+    </section>
+  </main>
+
+  <!-- Progress bar + runner (SVG inline; no external GIF needed) -->
+  <div id="progress-container" aria-hidden="true">
+    <div id="progress-track" aria-hidden="true"></div>
+    <div id="progress-bar" aria-hidden="true"></div>
+
+    <!-- Animated SVG car -->
+    <div id="runner-icon" aria-hidden="true">
+      <svg viewBox="0 0 60 30" width="60" height="30" role="img" aria-hidden="true" focusable="false">
+        <!-- Car body -->
+        <g id="car-body">
+          <!-- Main body -->
+          <rect x="8" y="12" width="35" height="8" rx="2" fill="var(--accent-primary)" />
+          <!-- Windshield -->
+          <rect x="12" y="8" width="12" height="4" rx="1" fill="var(--accent-secondary)" />
+          <!-- Hood -->
+          <rect x="25" y="10" width="8" height="2" rx="1" fill="var(--accent-secondary)" />
+          <!-- Bumper -->
+          <rect x="43" y="14" width="3" height="4" rx="1" fill="var(--accent-secondary)" />
+          <!-- Headlight -->
+          <circle cx="45" cy="16" r="1.5" fill="#fff" opacity="0.9" />
+        </g>
+
+        <!-- Wheels (animated) -->
+        <g id="wheels">
+          <!-- Front wheel -->
+          <circle id="front-wheel" cx="35" cy="22" r="4" fill="var(--text-primary)" stroke="var(--accent-secondary)"
+            stroke-width="1">
+            <animateTransform attributeName="transform" attributeType="XML" type="rotate" from="0 35 22" to="360 35 22"
+              dur="0.8s" repeatCount="indefinite" />
+          </circle>
+          <circle cx="35" cy="22" r="2" fill="var(--accent-primary)" />
+
+          <!-- Back wheel -->
+          <circle id="back-wheel" cx="15" cy="22" r="4" fill="var(--text-primary)" stroke="var(--accent-secondary)"
+            stroke-width="1">
+            <animateTransform attributeName="transform" attributeType="XML" type="rotate" from="0 15 22" to="360 15 22"
+              dur="0.8s" repeatCount="indefinite" />
+          </circle>
+          <circle cx="15" cy="22" r="2" fill="var(--accent-primary)" />
+        </g>
+
+        <!-- Exhaust smoke (animated) -->
+        <g id="exhaust" opacity="0.6">
+          <circle cx="6" cy="16" r="1" fill="var(--text-secondary)">
+            <animate attributeName="opacity" values="0.6;0.2;0.6" dur="1.5s" repeatCount="indefinite" />
+            <animateTransform attributeName="transform" type="translate" values="0,0; -3,-2; -6,-4" dur="1.5s"
+              repeatCount="indefinite" />
+          </circle>
+          <circle cx="4" cy="15" r="0.8" fill="var(--text-secondary)">
+            <animate attributeName="opacity" values="0.4;0.1;0.4" dur="1.8s" repeatCount="indefinite" />
+            <animateTransform attributeName="transform" type="translate" values="0,0; -4,-3; -8,-6" dur="1.8s"
+              repeatCount="indefinite" />
+          </circle>
+        </g>
+      </svg>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,27 @@
+<section id="experience" class="container">
+  <div class="header-section">
+    <span class="badge">Career Journey</span>
+    <h2 class="title font-display">Work <span class="gradient-text">Experience</span></h2>
+  </div>
+  
+  <div class="timeline mt-4">
+    <div class="timeline-item" *ngFor="let exp of experience; let i = index">
+      <div class="timeline-marker"></div>
+      <div class="timeline-content glass animate-reveal">
+        <div class="exp-header">
+          <div>
+            <h3 class="role font-display">{{ exp.role }}</h3>
+            <h4 class="company">{{ exp.company }} <span class="separator">/</span> {{ exp.location }}</h4>
+          </div>
+          <span class="period">{{ exp.period }}</span>
+        </div>
+        <ul class="exp-desc">
+          <li *ngFor="let item of exp.description">{{ item }}</li>
+        </ul>
+        <div class="tech-tags">
+          <span class="tag" *ngFor="let t of exp.tech">{{ t }}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
