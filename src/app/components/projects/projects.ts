@@ -1,0 +1,90 @@
+import { Component, inject } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { ResumeService } from '../../services/resume';
+
+@Component({
+  selector: 'app-projects',
+  standalone: true,
+  imports: [CommonModule],
+  template: `
+    <section id="projects" class="container bg-section">
+      <div class="header-section text-center">
+        <h2 class="title font-display">Featured <span class="gradient-text">Projects</span></h2>
+        <p class="subtitle mt-3">Selected works from my professional and personal journey.</p>
+      </div>
+
+      <div class="projects-grid mt-5">
+        <div class="project-card glass" *ngFor="let proj of projects">
+          <div class="card-image glass">
+            <span class="placeholder-icon">📂</span>
+          </div>
+          <div class="card-content">
+            <h3 class="font-display">{{ proj.title }}</h3>
+            <p>{{ proj.description }}</p>
+            <div class="tech-tags mt-3">
+              <span class="tag" *ngFor="let t of proj.tech">{{ t }}</span>
+            </div>
+            <a href="#" class="view-btn">Coming Soon <span class="arrow">→</span></a>
+          </div>
+        </div>
+      </div>
+    </section>
+  `,
+  styles: [`
+    .bg-section { padding: 8rem 0; }
+    .text-center { text-align: center; }
+    .mt-3 { margin-top: 1rem; }
+    .mt-5 { margin-top: 5rem; }
+    .title { font-size: 3.2rem; font-weight: 800; }
+    .subtitle { color: var(--text-muted); font-size: 1.15rem; }
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 3rem;
+      max-width: 1200px;
+      margin: auto;
+    }
+    .project-card {
+      padding: 1rem;
+      border-radius: 1.5rem;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: all 0.4s ease;
+    }
+    .project-card:hover { transform: translateY(-10px); background: rgba(30, 41, 59, 0.9); }
+    
+    .card-image {
+      height: 200px;
+      margin-bottom: 1.5rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 1rem;
+      background: linear-gradient(135deg, rgba(99, 102, 241, 0.2), rgba(236, 72, 153, 0.2));
+    }
+    .placeholder-icon { font-size: 4rem; opacity: 0.3; }
+    
+    .card-content { padding: 1.5rem; flex: 1; display: flex; flex-direction: column; }
+    .card-content h3 { font-size: 1.6rem; color: var(--text-main); margin-bottom: 1rem; letter-spacing: -0.5px; }
+    .card-content p { color: var(--text-muted); font-size: 0.95rem; line-height: 1.7; flex: 1; min-height: 80px; }
+    
+    .tech-tags { display: flex; flex-wrap: wrap; gap: 0.8rem; margin-bottom: 2rem; }
+    .tag { background: rgba(99, 102, 241, 0.08); border: 1px solid rgba(99, 102, 241, 0.15); color: var(--primary); padding: 0.35rem 0.8rem; border-radius: 0.5rem; font-size: 0.75rem; font-weight: 700; }
+    
+    .view-btn { font-size: 0.9rem; font-weight: 700; color: var(--primary); display: flex; align-items: center; gap: 0.5rem; }
+    .view-btn:hover { color: var(--secondary); transform: translateX(5px); }
+    .arrow { font-size: 1.2rem; transition: transform 0.3s; }
+
+    @media (max-width: 768px) {
+      .projects-grid { grid-template-columns: 1fr; padding: 0 1rem; }
+      .card-content { padding: 1rem; }
+      .title { font-size: 2.5rem; }
+    }
+  `]
+})
+export class ProjectsComponent {
+  resumeService = inject(ResumeService);
+  projects = this.resumeService.projects;
+}

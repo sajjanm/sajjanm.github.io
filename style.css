@@ -1,35 +1,158 @@
 /* Reset + basics */
 * { box-sizing: border-box; margin: 0; padding: 0; }
 html { scroll-behavior: smooth; }
-body { font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial; color:#1f2937; background:#f7fafc; line-height:1.5; }
+
+/* CSS Custom Properties for theming */
+:root {
+  --bg-primary: #f7fafc;
+  --bg-secondary: #fbfdff;
+  --bg-card: #ffffff;
+  --text-primary: #1f2937;
+  --text-secondary: #374151;
+  --text-accent: #0b2f5a;
+  --accent-primary: #1366d6;
+  --accent-secondary: #0b2f5a;
+  --border-color: rgba(15,23,42,0.04);
+  --shadow-light: rgba(11,47,90,0.06);
+  --shadow-medium: rgba(15,23,42,0.06);
+  --nav-bg: rgba(255,255,255,0.95);
+  --progress-track: rgba(15,23,42,0.06);
+  --progress-shadow: rgba(2,6,23,0.08);
+}
+
+/* Dark theme */
+[data-theme="dark"] {
+  --bg-primary: #0f172a;
+  --bg-secondary: #1e293b;
+  --bg-card: #334155;
+  --text-primary: #f1f5f9;
+  --text-secondary: #cbd5e1;
+  --text-accent: #e2e8f0;
+  --accent-primary: #3b82f6;
+  --accent-secondary: #60a5fa;
+  --border-color: rgba(148,163,184,0.1);
+  --shadow-light: rgba(0,0,0,0.3);
+  --shadow-medium: rgba(0,0,0,0.2);
+  --nav-bg: rgba(15,23,42,0.95);
+  --progress-track: rgba(148,163,184,0.2);
+  --progress-shadow: rgba(0,0,0,0.3);
+}
+
+body { 
+  font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial; 
+  color: var(--text-primary); 
+  background: var(--bg-primary); 
+  line-height: 1.5;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
 
 /* Top nav */
 header {
   position: fixed; top: 0; left: 0; width: 100%;
-  background: rgba(255,255,255,0.95);
-  box-shadow: 0 2px 8px rgba(15,23,42,0.06);
+  background: var(--nav-bg);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 2px 8px var(--shadow-medium);
   z-index: 1000;
+  transition: background-color 0.3s ease;
 }
-nav ul { display:flex; justify-content:center; list-style:none; gap:1.5rem; padding:1rem 0; }
-nav a { text-decoration:none; color:#0b2f5a; font-weight:600; letter-spacing:0.2px; }
-nav a:hover { color:#1366d6; }
+nav { display: flex; justify-content: space-between; align-items: center; padding: 0 2rem; }
+nav ul { display:flex; justify-content:center; list-style:none; gap:1.5rem; padding:1rem 0; flex: 1; }
+nav a { text-decoration:none; color: var(--text-accent); font-weight:600; letter-spacing:0.2px; transition: color 0.3s ease; }
+nav a:hover { color: var(--accent-primary); }
+
+/* Theme selector */
+.theme-selector {
+  display: flex;
+  align-items: center;
+}
+
+#theme-toggle {
+  background: none;
+  border: 2px solid var(--border-color);
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  color: var(--text-accent);
+}
+
+#theme-toggle:hover {
+  border-color: var(--accent-primary);
+  background: var(--accent-primary);
+  color: white;
+}
+
+.theme-icon {
+  width: 18px;
+  height: 18px;
+  transition: opacity 0.3s ease;
+}
+
+.sun-icon {
+  opacity: 1;
+}
+
+.moon-icon {
+  opacity: 0;
+  position: absolute;
+}
+
+[data-theme="dark"] .sun-icon {
+  opacity: 0;
+}
+
+[data-theme="dark"] .moon-icon {
+  opacity: 1;
+}
 
 /* Sections (long single-page story) */
-.section { min-height:100vh; display:flex; align-items:center; justify-content:center; padding:4rem 1.25rem; border-bottom:1px solid rgba(15,23,42,0.04); background:linear-gradient(180deg,transparent,transparent); }
-.section:nth-child(even) { background:#fbfdff; }
+.section { 
+  min-height:100vh; 
+  display:flex; 
+  align-items:center; 
+  justify-content:center; 
+  padding:4rem 1.25rem; 
+  border-bottom:1px solid var(--border-color); 
+  background: var(--bg-primary);
+  transition: background-color 0.3s ease;
+}
+.section:nth-child(even) { background: var(--bg-secondary); }
 
 .content { max-width:900px; text-align:center; margin:0 auto; padding:0 1rem; }
-.profile-pic { width:150px; height:150px; object-fit:cover; border-radius:50%; box-shadow:0 6px 18px rgba(11,47,90,0.06); margin-bottom:1rem; }
-.lead { font-size:1.125rem; color:#374151; margin-top:0.5rem; }
+.profile-pic { 
+  width:150px; 
+  height:150px; 
+  object-fit:cover; 
+  border-radius:50%; 
+  box-shadow:0 6px 18px var(--shadow-light); 
+  margin-bottom:1rem;
+  transition: box-shadow 0.3s ease;
+}
+.lead { font-size:1.125rem; color: var(--text-secondary); margin-top:0.5rem; transition: color 0.3s ease; }
 
 /* Timeline style */
 .timeline { margin-top:1.25rem; padding:0; list-style:none; text-align:left; }
 .timeline li { margin-bottom:1.25rem; }
-.year { display:block; color:#1366d6; font-weight:700; }
-.details h3 { margin:0.25rem 0; color:#0b2f5a; }
+.year { display:block; color: var(--accent-primary); font-weight:700; transition: color 0.3s ease; }
+.details h3 { margin:0.25rem 0; color: var(--text-accent); transition: color 0.3s ease; }
+.details p { color: var(--text-secondary); transition: color 0.3s ease; }
 
 /* Testimonials */
-blockquote { background:#fff; border-left:4px solid #1366d6; padding:1rem; margin:1rem 0; border-radius:6px; font-style:italic; }
+blockquote { 
+  background: var(--bg-card); 
+  border-left:4px solid var(--accent-primary); 
+  padding:1rem; 
+  margin:1rem 0; 
+  border-radius:6px; 
+  font-style:italic;
+  transition: background-color 0.3s ease;
+  box-shadow: 0 2px 8px var(--shadow-light);
+}
+blockquote cite { color: var(--text-secondary); transition: color 0.3s ease; }
 
 /* Progress container (bottom centered) */
 #progress-container {
@@ -45,74 +168,75 @@ blockquote { background:#fff; border-left:4px solid #1366d6; padding:1rem; margi
 
 /* Visual track and filling bar */
 #progress-track {
-  position:absolute; inset:0; background: rgba(15,23,42,0.06);
+  position:absolute; inset:0; background: var(--progress-track);
   border-radius: 28px; overflow:hidden;
+  transition: background-color 0.3s ease;
 }
 #progress-bar {
   position:absolute; left:0; top:0; bottom:0; width:0%;
-  background: linear-gradient(90deg, #1366d6 0%, #0b2f5a 100%);
+  background: linear-gradient(90deg, var(--accent-primary) 0%, var(--accent-secondary) 100%);
   border-radius: inherit;
-  transition: width 160ms linear;
-  box-shadow: inset 0 -4px 12px rgba(2,6,23,0.08);
+  transition: width 160ms linear, background 0.3s ease;
+  box-shadow: inset 0 -4px 12px var(--progress-shadow);
 }
 
-/* Runner icon (absolute inside container) */
+/* Car icon (absolute inside container) */
 #runner-icon {
   position: absolute;
-  bottom: 6px;
+  bottom: 9px;
   left: 0;
-  width: 44px;
-  height: 44px;
+  width: 60px;
+  height: 30px;
   display: block;
   z-index: 10;
   pointer-events: none;
   will-change: transform;
 }
 
-/* SVG inner animations: arms & legs */
-#runner-g { transform-origin: 50% 50%; }
-
-/* legs rotate around the hip (approx at 20,20 in viewBox) */
-#left-leg { transform-origin: 20px 20px; animation: leftLeg 620ms ease-in-out infinite; }
-#right-leg { transform-origin: 20px 20px; animation: rightLeg 620ms ease-in-out infinite; animation-delay: 310ms; }
-
-/* arms swing opposite of legs */
-#left-arm  { transform-origin: 20px 13px; animation: leftArm 620ms ease-in-out infinite; animation-delay: 310ms; }
-#right-arm { transform-origin: 20px 13px; animation: rightArm 620ms ease-in-out infinite; }
-
-/* subtle bob for whole runner (gives life) */
-#runner-g { animation: bob 620ms ease-in-out infinite; }
-
-/* keyframes */
-@keyframes leftLeg {
-  0%   { transform: rotate(25deg); }
-  50%  { transform: rotate(-22deg); }
-  100% { transform: rotate(25deg); }
+/* SVG theme transitions for car */
+#runner-icon svg * {
+  transition: fill 0.3s ease, stroke 0.3s ease;
 }
-@keyframes rightLeg {
-  0%   { transform: rotate(-22deg); }
-  50%  { transform: rotate(25deg); }
-  100% { transform: rotate(-22deg); }
+
+/* Car body subtle bounce animation */
+#car-body {
+  animation: carBounce 1.2s ease-in-out infinite;
+  transform-origin: center bottom;
 }
-@keyframes leftArm {
-  0%   { transform: rotate(-18deg); }
-  50%  { transform: rotate(18deg); }
-  100% { transform: rotate(-18deg); }
+
+/* Exhaust smoke animation */
+#exhaust {
+  animation: exhaustPuff 2s ease-in-out infinite;
 }
-@keyframes rightArm {
-  0%   { transform: rotate(18deg); }
-  50%  { transform: rotate(-18deg); }
-  100% { transform: rotate(18deg); }
+
+/* Car animations */
+@keyframes carBounce {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-1px); }
 }
-@keyframes bob {
-  0%   { transform: translateY(0); }
-  50%  { transform: translateY(-2px); }
-  100% { transform: translateY(0); }
+
+@keyframes exhaustPuff {
+  0% { opacity: 0.6; }
+  50% { opacity: 0.3; }
+  100% { opacity: 0.6; }
 }
 
 /* Responsive tweaks */
 @media (max-width:640px) {
   .profile-pic { width:110px; height:110px; }
   #progress-container { height: 42px; bottom: 14px; }
-  #runner-icon { width:36px; height:36px; bottom:6px; }
+  #runner-icon { width: 48px; height: 24px; bottom: 9px; }
+  
+  nav { padding: 0 1rem; }
+  nav ul { gap: 1rem; }
+  
+  #theme-toggle {
+    width: 36px;
+    height: 36px;
+  }
+  
+  .theme-icon {
+    width: 16px;
+    height: 16px;
+  }
 }
